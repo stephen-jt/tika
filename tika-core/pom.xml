@@ -119,10 +119,26 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>io.github.ZJU-ACES-ISE</groupId>
+      <artifactId>chatunitest-starter</artifactId>
+      <version>1.4.0</version>
+      <type>pom</type>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>io.github.ZJU-ACES-ISE</groupId>
+        <artifactId>chatunitest-maven-plugin</artifactId>
+        <version>1.4.1</version>
+        <configuration>
+          <model>qwen2.5-coder:7b</model>
+          <url>http://localhost:11434/v1/chat/completions</url>
+          <apiKeys>ollama</apiKeys>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
